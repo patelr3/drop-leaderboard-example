@@ -28,6 +28,7 @@ COPY requirements.txt .
 COPY install_requirements.sh .
 COPY predict.py .
 COPY run_model.sh .
+COPY drop_library .
 RUN ./install_requirements.sh
 
 # EXPOSE 8000
