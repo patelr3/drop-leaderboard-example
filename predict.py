@@ -24,14 +24,10 @@ if __name__ == "__main__":
     
     predictions = {}
 
-    count = 0
     # Run on input file & collect answers
     input_json = json.load(open(args.input_file, encoding = "utf8"))
     passages = input_json.items()
     for passage_id , passage_data in tqdm(passages):
-        if (count > 1):
-            break;
-        count += 1
         passage = passage_data["passage"]
         for qa_pair in passage_data["qa_pairs"]:
             question = qa_pair["question"]
@@ -45,6 +41,8 @@ if __name__ == "__main__":
             predictions[query_id] = ans_str
 
     # Write output file
-    os.makedirs(os.path.dirname(args.output_file))
+    dirpath = args.output_file.rsplit('/',1)[0];
+    if not os.path.exists(dirpath):
+        os.makedirs(dirpath)
     with open(args.output_file, "w", encoding = "utf8") as fout:
         json.dump(predictions, fout, indent=4)

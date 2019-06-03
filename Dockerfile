@@ -12,6 +12,7 @@ COPY requirements.txt .
 COPY predict.py .
 COPY run_model.sh .
 COPY drop_library ./drop_library
+COPY drop_dataset_dev.json . 
 #RUN ./install_requirements.sh
 
 # EXPOSE 8000
