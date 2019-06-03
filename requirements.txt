@@ -1,9 +1,0 @@
-scikit-learn
-jsonschema==2.6
-requests==2.21.0
-PyYAML==3.13
-allennlp==0.8.3
-tqdm
-pylint
-pytest
-pytest-cov
